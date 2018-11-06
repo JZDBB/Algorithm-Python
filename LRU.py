@@ -1,5 +1,6 @@
 # coding: utf-8
 from collections import OrderedDict
+import random
 
 
 class LRUCache(OrderedDict):
@@ -36,8 +37,6 @@ if __name__ == '__main__':
         cache.set(i, i)
 
     for i in range(10):
-        import random
-
         i = random.randint(1, 20)
         print('cache', cache.cache.keys())
         if cache.get(i):
