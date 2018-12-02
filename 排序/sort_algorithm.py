@@ -128,13 +128,33 @@ class Sorted(object):
             gap = round(gap / 3)
         return x
 
+    def quicksort(self, x, l, r):
+        if l < r:
+            q = self.partition(x, l, r)
+            self.quicksort(x, l, q - 1)
+            self.quicksort(x, q + 1, r)
+
+    def partition(self, array, l, r):
+        x = array[r]
+        i = l - 1
+        for j in range(l, r):
+            if array[j] <= x:
+                i += 1
+                array[i], array[j] = array[j], array[i]
+        array[i + 1], array[r] = array[r], array[i + 1]
+        return i + 1
+
 
 if __name__ == '__main__':
     sort_calc = Sorted()
-    print(sort_calc.selectionSort([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.selectionSort2num([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.BubbleSort([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.BubbleSort2([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.BidirectionalBubbleSort([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.InsertionSort([1, 5, 3, 6, 2, 9]))
-    print(sort_calc.HashSort([1, 5, 3, 6, 2, 9]))
+    array = [1, 5, 3, 6, 2, 9]
+    print(sort_calc.selectionSort(array))
+    print(sort_calc.selectionSort2num(array))
+    print(sort_calc.BubbleSort(array))
+    print(sort_calc.BubbleSort2(array))
+    print(sort_calc.BidirectionalBubbleSort(array))
+    print(sort_calc.InsertionSort(array))
+    print(sort_calc.HashSort(array))
+    # 快速排序是直接对array的操作。
+    sort_calc.quicksort(array, 0, len(array) - 1)
+    print(array)
