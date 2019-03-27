@@ -27,3 +27,7 @@ def threeSum(nums):
                 while start < end and nums[start] == nums:
                     start += 1
     return res
+
+if __name__ == '__main__':
+    arr = [-1,0,1,2,-1,-4]
+    print(threeSum(arr))
