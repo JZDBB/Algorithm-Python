@@ -118,22 +118,39 @@
 # b = f(a)
 # print(b)
 
+# def reverse(x: int) -> int:
+#     if x >= 0:
+#         flag = True
+#     else:
+#         flag = False
+#         x = -x
+#     str_x = str(x)
+#     list_x = list(str_x)
+#     nums = ''.join(i for i in list_x[::-1])
+#     nums = int(nums) if flag == True else -int(nums)
+#     print(nums)
+#     print(2**31 -1)
+#     print(nums > 2 ** 31 - 1)
+#     if (nums > 2 ** 31 - 1 or nums < -2 ** 31):
+#         return 0
+#     return nums
+#
+# a = 1534236469
+# print(reverse(a))
+
+
 def reverse(x: int) -> int:
-    if x >= 0:
-        flag = True
-    else:
-        flag = False
-        x = -x
+    if x < 0:
+        return False
     str_x = str(x)
     list_x = list(str_x)
-    nums = ''.join(i for i in list_x[::-1])
-    nums = int(nums) if flag == True else -int(nums)
-    print(nums)
-    print(2**31 -1)
-    print(nums > 2 ** 31 - 1)
-    if (nums > 2 ** 31 - 1 or nums < -2 ** 31):
-        return 0
-    return nums
+    half = int(len(list_x) / 2)
+    for i in range(half):
+        if list_x[i] == list_x[-i-1]:
+            continue
+        else:
+            return False
+    return True
 
-a = 1534236469
-print(reverse(a))
+x = 1223321
+print(reverse(x))
