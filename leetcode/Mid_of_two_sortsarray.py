@@ -29,13 +29,26 @@ def get_Median(nums1, nums2):
             num.append(nums2[j])
             i += 1
             j += 1
+            if len(num) > l // 2:
+                if l % 2 == 0:
+                    return float((num[l // 2 - 1] + num[l // 2]) / 2)
+                else:
+                    return float(num[l // 2])
     while i < len(nums1):
         num.append(nums1[i])
         i += 1
+        if len(num) > l//2:
+            if l % 2 == 0:
+                return float((num[l // 2 - 1] + num[l // 2]) / 2)
+            else:
+                return float(num[l // 2])
     while j < len(nums2):
         num.append(nums2[j])
         j += 1
-    if l % 2 == 0:
-        return float((num[l // 2 - 1] + num[l // 2]) / 2)
-    else:
-        return float(num[l // 2])
+        if len(num) > l//2:
+            if l % 2 == 0:
+                return float((num[l // 2 - 1] + num[l // 2]) / 2)
+            else:
+                return float(num[l // 2])
+
+print(get_Median([1], [1]))
