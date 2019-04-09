@@ -35,3 +35,4 @@ def Z_trans_slow(s, numRows):
     res = ''.join(out)
     return res
 
+print(Z_trans(s = "LEETCODEISHIRING", numRows = 3))
